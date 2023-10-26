@@ -33,6 +33,11 @@
                 </div>
 
                 <div>
+                    <label for="valor">Valor do contrato:</label>
+                    <input type="text" id="valor" name="valor">
+                </div>
+
+                <div>
                     <button type="submit">Calcular</button>
                 </div>
             </form>

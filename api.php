@@ -13,6 +13,8 @@
 
         $dataInicial = $_GET['dataInicial'];
         $dataFinal = $_GET['dataFinal'];
+
+        $valor = $_GET['valor'];
     }
 
     $api_url = "https://api.bcb.gov.br/dados/serie/bcdata.sgs.$codigoSerie/dados?formato=json&dataInicial=$dataInicial&dataFinal=$dataFinal";
@@ -44,16 +46,22 @@
         if($data !== null){
             // A resposta agora está no formato de um array associativo
             // Você pode acessar os dados conforme necessário
-            $total = 0;
+            $indicePercentual = 0;
             foreach ($data as $entry){
-                $total = $total + $entry['valor'];
+                $indicePercentual = $indicePercentual + $entry['valor'];
                 // echo "Data: " . $entry['data'] . "<br>";
                 // echo "Valor: " . $entry['valor'] . "<br>";
                 // echo "Sub total: " . $total . "<br>";
                 // echo "<br>";
             }
-            $total = ($total/100)+1;
-            echo "Índice: " . $total . "<br>";
+            
+            $indicePercentual = ($indicePercentual / 100) + 1;
+            
+            echo "Índice: " . $indicePercentual . "<br>";
+
+            $valorAtualizado = $indicePercentual * $valor;
+
+            echo "Valor contrato atualizado: " . $valorAtualizado;
         }else{
             echo "Erro na decodificação JSON.";
         }
