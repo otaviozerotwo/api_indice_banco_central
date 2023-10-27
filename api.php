@@ -19,16 +19,10 @@
 
     $api_url = "https://api.bcb.gov.br/dados/serie/bcdata.sgs.$codigoSerie/dados?formato=json&dataInicial=$dataInicial&dataFinal=$dataFinal";
 
-    // Define a chave de acesso da API, se necessário
-    // $api_key = "sua_chave_de_acesso";
-
-    // Configura as opções de contexto para a solicitação
     $options = [
         'http' => [
             'method' => 'GET',
             'header' => 'User-Agent: PHP',
-            // Adicione a chave de acesso, se necessário
-            // 'header' => "Authorization: Bearer $api_key",
         ],
     ];
 
@@ -49,10 +43,6 @@
             $indicePercentual = 0;
             foreach ($data as $entry){
                 $indicePercentual = $indicePercentual + $entry['valor'];
-                // echo "Data: " . $entry['data'] . "<br>";
-                // echo "Valor: " . $entry['valor'] . "<br>";
-                // echo "Sub total: " . $total . "<br>";
-                // echo "<br>";
             }
             
             $indicePercentual = ($indicePercentual / 100) + 1;
