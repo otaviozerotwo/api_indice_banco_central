@@ -18,7 +18,7 @@
         </div>
 
         <div class="form-floating">
-            <form action="api.php" method="GET" autocomplete="off">
+            <form id="form-modificado" action="api.php" method="GET" autocomplete="off">
                 <div class="mb-3">
                     <label for="codigoSerie" class="mb-1">Selecione um índice:</label>
                     <select name="codigoSerie" class="form-select">
@@ -45,10 +45,6 @@
 
                 <div class="d-flex justify-content-center mt-3">
                     <button type="submit" class="btn btn-primary w-100">Calcular</button>
-                </div>
-
-                <div id="resultado">
-                    <span></span>
                 </div>
             </form>
         </div>
